@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <packaging>jar</packaging>
+    <groupId>org.webjars</groupId>
+    <artifactId>visjs</artifactId>
+    <version>0.7.4</version>
+    <name>vis.js</name>
+    <description>WebJar for vis.js</description>
+    <url>http://webjars.org</url>
+
+    <developers>
+        <developer>
+            <id>rbarazzutti</id>
+            <name>Raphaël P. Barazzutti</name>
+            <email>rbarazzutti@apache.org</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>http://github.com/webjars/visjs</url>
+        <connection>scm:git:https://github.com/webjars/visjs.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/visjs.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstreamVersion>0.7.4</upstreamVersion>
+        <downloadUrl>https://github.com/almende/vis/blob/v${upstreamVersion}/dist</downloadUrl>
+        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
+    </properties>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0-beta-4</version>
+                <executions>
+                    <execution>
+                        <id>download-js</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${downloadUrl}</url>
+                            <fromFile>vis.js</fromFile>
+                            <toDir>${destinationDir}</toDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-css</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${downloadUrl}</url>
+                            <fromFile>vis.css</fromFile>
+                            <toDir>${destinationDir}</toDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-min-js</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${downloadUrl}</url>
+                            <fromFile>vis.min.js</fromFile>
+                            <toDir>${destinationDir}</toDir>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>download-min-css</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>download-single</goal>
+                        </goals>
+                        <configuration>
+                            <url>${downloadUrl}</url>
+                            <fromFile>vis.min.css</fromFile>
+                            <toDir>${destinationDir}</toDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destDir}</targetPath>
+            </resource>
+        </resources>
+    </build>
+
+</project>
