@@ -43,7 +43,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>0.7.4</upstreamVersion>
-        <downloadUrl>https://github.com/almende/vis/blob/v${upstreamVersion}/dist</downloadUrl>
+        <downloadUrl>https://raw.githubusercontent.com/almende/vis/v${upstreamVersion}/dist</downloadUrl>
         <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
     </properties>
 
