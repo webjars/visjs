@@ -43,7 +43,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>3.2.0</upstreamVersion>
         <downloadUrl>https://raw.githubusercontent.com/almende/vis/v${upstreamVersion}/dist</downloadUrl>
-        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
+        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destinationDir>
         <requirejs>
             {
                 "paths": { "visjs": "vis" }
